@@ -42,13 +42,15 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     win2012.vm.hostname = "windows2012"
     win2012.vm.box = "windows2012"
-    win2012.vm.box_url = "D:/OneDrive/Projects/iFunky\bakery/windows_2012_r2_virtualbox.box"
+    win2012.vm.box_url = "D:/OneDrive/Projects/iFunky/bakery/windows_2012_r2_virtualbox.box"
     win2012.vm.network "private_network", ip: "192.168.33.12"
 
     win2012.vm.provider :virtualbox do |v, override|
       v.gui = true
       v.customize ["modifyvm", :id, "--memory", 2024]
       v.customize ["modifyvm", :id, "--cpus", 2]
+      v.customize ["modifyvm", :id, "--clipboard", "bidirectional"]
+      v.customize ["modifyvm", :id, "--draganddrop", "bidirectional"]
     end
 
   end
