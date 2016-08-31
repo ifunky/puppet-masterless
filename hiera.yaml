@@ -1,8 +1,8 @@
 ---
 :backends:
-  - eyaml
   - yaml
 :logger: console
+
 :hierarchy:
   - "node/%{::fqdn}"
   - "%{::environment}"
@@ -12,7 +12,4 @@
   - common
 
 :yaml:
-   :datadir: hieradata/%{::environment}
-
-:eyaml:
    :datadir: hieradata/%{::environment}
