@@ -11,5 +11,7 @@
   - "%{::flavour}"
   - common
 
+:merge_behavior: deeper
+
 :yaml:
    :datadir: hieradata/%{::environment}
