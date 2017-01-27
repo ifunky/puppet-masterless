@@ -3,11 +3,11 @@
   hieradata:
     basedir: hieradata
     prefix: false
-    remote: git@github.com:ifunky/puppet-hieradata.git
+    remote: https://github.com/ifunky/puppet-hieradata
   puppet:
     basedir: environments
     prefix: false
-    remote: git@github.com:ifunky/puppet-control.git
+    remote: https://github.com/ifunky/puppet-control
 
 
 
