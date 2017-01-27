@@ -3,3 +3,4 @@
 /.r10k
 *.lock
 .vagrant
+*.zip
