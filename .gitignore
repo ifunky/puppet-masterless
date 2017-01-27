@@ -1,5 +1,5 @@
 /environments
 /hieradata
-/r10k-cache
+/.r10k
 *.lock
 .vagrant
