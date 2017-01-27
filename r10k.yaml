@@ -1,4 +1,7 @@
 ---
+
+cachedir: './.r10k'
+
 :sources:
   hieradata:
     basedir: hieradata
