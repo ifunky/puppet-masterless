@@ -1,17 +1,19 @@
 ---
-:backends:
-  - yaml
-:logger: console
+version: 5
 
-:hierarchy:
-  - "node/%{::fqdn}"
-  - "%{::environment}"
-  - "%{::osfamily}"
-  - "%{::location}"
-  - "%{::flavour}"
-  - common
+defaults:
+  datadir: data
+  data_hash: yaml_data
 
-:merge_behavior: deeper
+hierarchy:
+  - name: "Nodes"
+    path: "nodes/%{trusted.certname}.yaml"
 
-:yaml:
-   :datadir: hieradata/%{::environment}
+  - name: "Environment specific"
+    path: "%{::environment}.yaml"
+
+  - name: "Per-OS defaults"
+    path: "os/%{::osfamily}.yaml"
+
+  - name: "Common defaults"
+    path: "common.yaml"

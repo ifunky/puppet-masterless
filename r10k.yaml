@@ -1,16 +1,14 @@
 ---
 
 :sources:
-  hieradata:
-    basedir: hieradata
-    prefix: false
-    remote: https://github.com/ifunky/puppet-hieradata
   puppet:
     basedir: environments
     prefix: false
     remote: https://github.com/ifunky/puppet-control
-
-
+  hieradata:
+    basedir: environments/data
+    prefix: false
+    remote: https://github.com/ifunky/puppet-hieradata
 
 deploy:
   purge_levels: [ 'deployment', 'puppetfile' ]
