@@ -8,27 +8,25 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.define "centos" do |centos|
     centos.vm.hostname  = "basecentos"
-    centos.vm.box 		  = "centos"
-    centos.vm.box_url   = "centos-7.1.box"
-	  centos.ssh.username	= "vagrant"
-	  centos.ssh.password	= "vagrant"
-	
+    centos.vm.box 		  = "dangibbons/centos7.3"
+    centos.vm.box_url   = "dangibbons/centos7.3"
+
     if Vagrant.has_plugin?("vagrant-cachier")
-    	centos.cache.scope       = :machine
-    	centos.cache.auto_detect = false
+      centos.cache.scope       = :machine
+      centos.cache.auto_detect = false
     end
 
     centos.vm.network "private_network", ip: "192.168.33.5"
+    centos.vm.synced_folder ".", "/puppet-dev", id: "vagrant-puppet-root"
 
     centos.vm.provider :virtualbox do |v, override|
-        v.gui = true
-        v.customize ["modifyvm", :id, "--memory", 1024]
-        v.customize ["modifyvm", :id, "--cpus", 1]
+      v.gui = true
+      v.customize ["modifyvm", :id, "--memory", 1024]
+      v.customize ["modifyvm", :id, "--cpus", 1]
     end
   end
 
   config.vm.define "win2012" do |win2012|
-
     win2012.vm.communicator = "winrm"
     win2012.winrm.username = "vagrant"
     win2012.winrm.password = "vagrant"
@@ -42,7 +40,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     win2012.vm.hostname = "windows2012"
     win2012.vm.box = "windows2012"
-    win2012.vm.box_url = "D:/OneDrive/Projects/iFunky/bakery/windows_2012_r2_virtualbox.box"
+    win2012.vm.box_url = "c:/Projects/iFunky/bakery/windows_2012_r2_virtualbox.box"
     win2012.vm.network "private_network", ip: "192.168.33.12"
 
     win2012.vm.provider :virtualbox do |v, override|

@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 cat >> /opt/puppetlabs/facter/facts.d/role.sh << EOF
 #!/bin/bash
 echo "role=::role"
