@@ -9,17 +9,17 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     centos.vm.box_url   = "dangibbons/centos7.3"
 
     if Vagrant.has_plugin?("vagrant-cachier")
-    	centos.cache.scope       = :machine
-    	centos.cache.auto_detect = false
+      centos.cache.scope       = :machine
+      centos.cache.auto_detect = false
     end
 
     centos.vm.network "private_network", ip: "192.168.33.5"
     centos.vm.synced_folder ".", "/puppet-dev", id: "vagrant-puppet-root"
 
     centos.vm.provider :virtualbox do |v, override|
-        v.gui = true
-        v.customize ["modifyvm", :id, "--memory", 1024]
-        v.customize ["modifyvm", :id, "--cpus", 1]
+      v.gui = true
+      v.customize ["modifyvm", :id, "--memory", 1024]
+      v.customize ["modifyvm", :id, "--cpus", 1]
     end
     centos.vm.provision "shell",
       inline: "echo 'environment=local'  >> /etc/puppetlabs/puppet/puppet.conf"
@@ -30,7 +30,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   config.vm.define "win2012" do |win2012|
-
     win2012.vm.communicator = "winrm"
     win2012.winrm.username = "vagrant"
     win2012.winrm.password = "vagrant"
