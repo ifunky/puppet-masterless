@@ -20,6 +20,7 @@
     done
 #fi
 
+
 ROLE_FILE=$"#!/bin/bash
 echo role=$ROLE"
 

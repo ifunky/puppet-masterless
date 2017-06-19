@@ -2,6 +2,7 @@ VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
+
   config.vm.define "centos" do |centos|
     centos.vm.hostname  = "basecentos"
     centos.vm.box 		  = "dangibbons/centos7.3"
